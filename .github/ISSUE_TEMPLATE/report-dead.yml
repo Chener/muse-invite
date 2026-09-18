@@ -1,0 +1,21 @@
+name: 反馈邀请码已失效
+description: 某个收录的邀请码用不了了？告诉我们，人工复核后下架
+title: "[失效] 邀请码 "
+labels: ["dead-report"]
+body:
+  - type: input
+    id: code
+    attributes:
+      label: 邀请码
+      description: 失效的邀请码
+      placeholder: FOSIZX
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: 具体情况
+      description: 打开链接后看到了什么提示？（如"名额已满""链接无效"等）
+      placeholder: 打开后提示名额已用完
+    validations:
+      required: true
