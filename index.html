@@ -34,6 +34,7 @@
     <p>收录公开分享的 Muse（Meta AI 助手）邀请码，打开页面就能看每个码的可用状态，不用再去 X 上大海捞针。</p>
     <div>
       <span class="badge crowd">📢 状态为众包更新，非实时</span>
+      <span class="badge" id="v2-badge">🟡 数据加载中…</span>
       <span class="badge">🇺🇸 美国已开放</span>
       <a class="badge" href="/regions.html">🗺️ 地区开放进度 →</a>
     </div>
@@ -101,6 +102,19 @@
     📢 <b>状态说明（请细读）：</b>本站所有"可用状态"均为<b>众包更新</b>——码主自报剩余次数 + 访客反馈 + 最后验证时间戳，<b>不是实时数据</b>。兑换前请以 Meta 官方页面实际结果为准。发现码已失效？<a href="https://github.com/Chener/muse-invite/issues/new?template=report-dead.yml" target="_blank" rel="noopener">点此反馈</a>，多人反馈后我们会复核下架。
   </div>
 
+  <section class="block" id="owner-panel">
+    <h2 class="sec">码主自助更新</h2>
+    <p style="color:var(--muted)">如果你是某个邀请码的码主：先点该码卡片上的「我是码主，认领」获取 owner_key（只显示一次，请妥善保存），然后在这里自助更新剩余次数，无需再走 GitHub 反馈。</p>
+    <div class="owner-form">
+      <input id="o-code" placeholder="邀请码，如 FOSIZX" autocomplete="off">
+      <input id="o-key" placeholder="owner_key（64 位）" autocomplete="off">
+      <input id="o-remaining" type="number" min="0" placeholder="剩余次数">
+      <button id="o-submit" class="btn small">更新剩余次数</button>
+    </div>
+    <div id="owner-msg" class="muted"></div>
+    <div id="claim-result" hidden></div>
+  </section>
+
   <section class="block">
     <h2 class="sec">有码想分享？</h2>
     <p style="color:var(--muted)">如果你在 X 或其他公开渠道看到有人分享 Muse 邀请码，欢迎提交收录（仅收录公开发布的码，标注来源；码主可随时要求下架）。</p>
@@ -114,24 +128,6 @@
   <p>本站与 Meta 无关。邀请码由公开渠道收录，码主可随时要求下架。数据更新于 2026-09-18 · 数据源 <a href="/data/codes.json">codes.json</a> · <a href="https://github.com/Chener/muse-invite" target="_blank" rel="noopener">GitHub</a></p>
 </div></footer>
 
-<script>
-(function(){
-  var cards=[].slice.call(document.querySelectorAll('#cards .card'));
-  var fs=document.getElementById('f-status'), so=document.getElementById('f-sort'), empty=document.getElementById('empty');
-  function apply(){
-    var list=cards.filter(function(c){ return !fs.value || c.dataset.status===fs.value; });
-    list.sort(function(a,b){
-      if(so.value==='code_asc') return a.dataset.code.localeCompare(b.dataset.code);
-      if(so.value==='verified_desc') return (b.dataset.verified||'').localeCompare(a.dataset.verified||'');
-      return (b.dataset.added||'').localeCompare(a.dataset.added||'');
-    });
-    cards.forEach(function(c){ c.style.display='none'; });
-    list.forEach(function(c){ c.style.display=''; });
-    empty.hidden=list.length>0;
-    document.getElementById('stat-total').textContent=cards.length;
-  }
-  fs.addEventListener('change',apply); so.addEventListener('change',apply); apply();
-})();
-</script>
+<script src="/assets/worker-v2.js" defer></script>
 </body>
 </html>
