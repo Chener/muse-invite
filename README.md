@@ -1,6 +1,6 @@
 # muse-invite
 
-Muse 邀请码聚合站（muse.chenerlab.com）：公开邀请码收录、可用状态（众包更新）、各地区开放进度 timeline。
+Muse 邀请码聚合站（muse.chenerpath.com）：公开邀请码收录、可用状态（众包更新）、各地区开放进度 timeline。
 
 Muse invite codes directory: publicly shared invite codes, availability status (crowdsourced), and regional rollout timeline.
 
