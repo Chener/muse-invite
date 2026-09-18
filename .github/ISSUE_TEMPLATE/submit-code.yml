@@ -1,0 +1,38 @@
+name: 提交邀请码
+description: 提交公开发布的 Muse 邀请码（人工审核后收录）
+title: "[收录] 邀请码 "
+labels: ["code-submission"]
+body:
+  - type: input
+    id: code
+    attributes:
+      label: 邀请码
+      description: 6 位邀请码，如 FOSIZX
+      placeholder: FOSIZX
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: 公开发布链接
+      description: 该码公开发布的页面链接（如 X 公开帖）。仅收录公开发布的码。
+      placeholder: https://x.com/...
+    validations:
+      required: true
+  - type: input
+    id: publisher
+    attributes:
+      label: 发布者
+      description: 公开帖的发布者昵称/账号
+      placeholder: "@xxx"
+  - type: input
+    id: remaining
+    attributes:
+      label: 剩余次数
+      description: 码主自报的剩余次数；未知请填"未知"，不要编造
+      placeholder: 未知
+  - type: textarea
+    id: notes
+    attributes:
+      label: 备注
+      description: 其他补充信息
