@@ -10,7 +10,7 @@
 
   // ★ 部署后替换，例如 "https://muse-invite-v2.xxx.workers.dev"（不要末尾斜杠）
   var WORKER_URL = "https://muse-invite-v2.chenhuitf2.workers.dev";
-  var workerReady = WORKER_URL.indexOf("https://muse-invite-v2.chenhuitf2.workers.dev") === -1;
+  var workerReady = WORKER_URL.indexOf("https://muse-invite-v2.chenhuitf2.workers.dev") !== -1;
 
   var STATUS_LABEL = { unverified: "待验证", working: "有人反馈可用", review: "失效复核中", retired: "已下架" };
 
